@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>vMenu Migrator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="panel" class="panel" hidden>
+        <header class="head">
+            <h1>Restore Old vMenu Data</h1>
+            <p id="summary" class="summary"></p>
+        </header>
+
+        <ul id="groups" class="groups"></ul>
+
+        <details id="skipped-box" class="skipped" hidden>
+            <summary id="skipped-title"></summary>
+            <pre id="skipped"></pre>
+        </details>
+
+        <ol class="steps">
+            <li>Press <b>Copy Code</b>.</li>
+            <li>Open <b>vMenu &gt; Misc Settings &gt; Import &amp; Export</b>.</li>
+            <li>Pick <b>Paste A Code</b>, press <kbd>Ctrl</kbd> + <kbd>V</kbd>, then <kbd>Enter</kbd>.</li>
+        </ol>
+
+        <textarea id="code" class="code" readonly spellcheck="false"></textarea>
+
+        <p id="status" class="status"></p>
+
+        <footer class="actions">
+            <button id="copy" class="primary" type="button">Copy Code</button>
+            <button id="close" type="button">Close</button>
+        </footer>
+    </div>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>
