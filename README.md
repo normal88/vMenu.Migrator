@@ -26,7 +26,6 @@ ensure vMenu
 
 - **Folder name.** The folder **must** be named exactly what your old vMenu ran under, which is usually `vMenu`. Any other name finds nothing.
 - **FiveM Legacy only.** FiveM Enhanced keeps saves in a different place, so there is nothing for this plugin to read there.
-- **Folder name on GitHub.** This repo is called `vMenu.Migrator`, but on your server the folder must be renamed to `vMenu` (or whatever your old vMenu ran under).
 
 ## Credits
 
