@@ -10,6 +10,10 @@ A vMenu Enhanced plugin that lets a player bring their saves from the original v
 
 Pasting it twice does no harm.
 
+### Prefer to pick item by item?
+
+The restore screen also links vMenu's own [online import tool](https://docs.vespura.com/vmenu/enhanced/old-vmenu-import/). It lets players edit, merge and compare their saves and choose exactly what to keep in each saved value, without overwriting saves they already made in vMenu Enhanced. The link can be changed in `config.lua` (`Config.DocsToolUrl`).
+
 ## How it works
 
 - **Reading the old saves.** FiveM only lets a resource read the saves stored under its own name. This resource is therefore named exactly like the old vMenu, `vMenu`, which lets it read everything the old vMenu saved on the player's computer. On FiveM Legacy those saves are shared by every server the player has played on.

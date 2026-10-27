@@ -5,8 +5,9 @@ const RESOURCE = typeof GetParentResourceName === "function" ? GetParentResource
 
 const ui = {};
 let copied = false;
+let docsUrl = "";
 
-for (const id of ["panel", "summary", "groups", "skipped-box", "skipped-title", "skipped", "code", "status", "copy", "close"]) {
+for (const id of ["panel", "summary", "groups", "skipped-box", "skipped-title", "skipped", "code", "status", "copy", "close", "alt", "docs-url", "docs"]) {
     ui[id] = document.getElementById(id);
 }
 
@@ -48,6 +49,9 @@ async function open(message) {
     ui.code.value = "";
     ui.copy.disabled = true;
     say("Working...", null);
+    docsUrl = typeof message.docsUrl === "string" ? message.docsUrl : "";
+    ui["docs-url"].value = docsUrl;
+    ui.alt.hidden = docsUrl === "";
     ui.panel.hidden = false;
 
     try {
@@ -69,9 +73,9 @@ async function open(message) {
     }
 }
 
-function copy() {
-    ui.code.focus();
-    ui.code.select();
+function copyFrom(field) {
+    field.focus();
+    field.select();
 
     let done = false;
 
@@ -81,13 +85,35 @@ function copy() {
         done = false;
     }
 
-    ui.code.setSelectionRange(0, 0);
+    field.setSelectionRange(0, 0);
 
-    if (done) {
+    return done;
+}
+
+function copy() {
+    if (copyFrom(ui.code)) {
         copied = true;
         say("Copied. Now paste it in vMenu > Misc Settings > Import & Export > Paste A Code.", "good");
     } else {
         say("Could not copy automatically. Click the code, press Ctrl + A, then Ctrl + C.", "bad");
+    }
+}
+
+function openDocs() {
+    if (!docsUrl) return;
+
+    if (typeof window.invokeNative === "function") {
+        try {
+            window.invokeNative("openUrl", docsUrl);
+            say("The online tool was opened in your browser.", "good");
+            return;
+        } catch {}
+    }
+
+    if (copyFrom(ui["docs-url"])) {
+        say("Link copied. Paste it in your browser to open the online tool.", "good");
+    } else {
+        say("Could not open the link. Click it, press Ctrl + A, then Ctrl + C.", "bad");
     }
 }
 
@@ -103,6 +129,7 @@ function close() {
 
 ui.copy.addEventListener("click", copy);
 ui.close.addEventListener("click", close);
+ui.docs.addEventListener("click", openDocs);
 
 window.addEventListener("message", event => {
     if (event.data && event.data.action === "open") {

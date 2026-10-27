@@ -102,6 +102,41 @@ kbd {
     border-radius: 4px;
 }
 
+.alt {
+    padding: 10px 12px;
+    font-size: 12px;
+    color: #a6a8b0;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 6px;
+}
+
+.alt p {
+    margin: 0 0 8px;
+    line-height: 1.5;
+}
+
+.alt-row {
+    display: flex;
+    gap: 8px;
+}
+
+.alt-url {
+    flex: 1;
+    min-width: 0;
+    padding: 6px 8px;
+    font-family: Consolas, monospace;
+    font-size: 11px;
+    color: #b9bcc6;
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 6px;
+}
+
+.alt button {
+    padding: 6px 12px;
+    font-size: 12px;
+}
+
 .code {
     height: 70px;
     resize: none;

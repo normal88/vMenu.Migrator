@@ -114,7 +114,7 @@ local function restore()
 
         plugin.RootMenu:Close()
 
-        SendNUIMessage({ action = 'open', resource = RESOURCE, entries = entries, lookups = lookups })
+        SendNUIMessage({ action = 'open', resource = RESOURCE, entries = entries, lookups = lookups, docsUrl = Config.DocsToolUrl })
         SetNuiFocus(true, true)
     end
 
@@ -151,7 +151,7 @@ RegisterNUICallback('close', function(data, cb)
 end)
 
 plugin.RootMenu:AddButton('Restore My Old vMenu Saves', {
-    Description = 'Finds everything the old vMenu saved on this computer (vehicles, peds, characters, loadouts and settings) and turns it into a code you paste into vMenu once.',
+    Description = 'Finds everything the old vMenu saved on this computer (vehicles, peds, characters, loadouts and settings) and turns it into a code you paste into vMenu once. The screen also links the online tool from vMenu, if you prefer to pick what to keep item by item.',
 }):OnSelected(restore)
 
 plugin:Connect(function() end)

@@ -13,3 +13,8 @@ Config.vMenuResource = 'vMenu.Enhanced'
 
 -- Seconds a player has to wait between two restores. Stops the button from being spammed.
 Config.Cooldown = 10
+
+-- Link to vMenu's own online import tool, shown on the restore screen for players who prefer it.
+-- That tool lets them edit, merge and compare their saves and pick exactly what to keep, item by item,
+-- without overwriting saves they already made in vMenu Enhanced.
+Config.DocsToolUrl = 'https://docs.vespura.com/vmenu/enhanced/old-vmenu-import/'
