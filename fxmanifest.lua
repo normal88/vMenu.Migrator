@@ -5,7 +5,7 @@ lua54 'yes'
 name 'vMenu Migrator'
 author 'Normal'
 description 'vMenu Enhanced plugin: lets a player turn their old vMenu saves into a vMenu Enhanced transfer code with one button'
-version '1.0.0'
+version '1.0.1'
 license 'GPL-3.0-or-later'
 
 ui_page 'ui/index.html'
